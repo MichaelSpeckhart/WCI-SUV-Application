@@ -1,0 +1,29 @@
+﻿<Window x:Class="WCI_SUV.UI.Views.ScanTicketBarcodeView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WCI_SUV.UI.Views"
+        mc:Ignorable="d"
+        Title="ScanTicketBarcodeView" Height="450" Width="800">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Input Fields -->
+        <StackPanel Grid.Row="0" Margin="5">
+            <TextBox x:Name="NumberOfGarments" Text="Ticket Size" Margin="0, 0, 0, 10"/>
+
+        </StackPanel>
+
+
+
+
+        <!-- Buttons -->
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right">
+        </StackPanel>
+    </Grid>
+</Window>

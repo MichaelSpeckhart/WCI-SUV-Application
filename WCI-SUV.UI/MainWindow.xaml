@@ -6,6 +6,8 @@
         xmlns:local="clr-namespace:WCI_SUV.UI"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
+
+   
     <DockPanel>
         <!-- Traditional Menu Bar -->
         <Menu DockPanel.Dock="Top" Height="20">
@@ -16,7 +18,6 @@
                 <MenuItem Header="_About" />
             </MenuItem>
         </Menu>
-
         <!-- Stylized Custom Menu Bar -->
         <StackPanel DockPanel.Dock="Top" Background="#2c3e50" Height="60" Orientation="Horizontal">
             <StackPanel.Resources>
@@ -47,16 +48,18 @@
                     </Setter>
                 </Style>
             </StackPanel.Resources>
-
-            <!-- Added Margin Left to first button for spacing from left edge -->
-            <Button Content="Conveyor" Margin="5,0,10,0"/>
-            <Button Content="Database"/>
+            <Button x:Name="ConveyorButton" Content="Conveyor" Margin="5,0,10,0"  Command="{Binding OpenConveyorControlsCommand}" />
+            <Button x:Name="DatabaseButton" Content="Database" Margin="5,0,10,0"  Command="{Binding OpenDatabaseViewCommand}"/>
+            <Button x:Name="SUVButton" Content="SUV" Margin="5,0,10,0" Command="{Binding OpenSuvControlsViewCommand}"/>
             <Button Content="OPC"/>
         </StackPanel>
-
         <!-- Main Content Area -->
         <Grid>
-            <!-- Your main content goes here -->
+            <Frame x:Name="MainFrame" 
+                   NavigationUIVisibility="Hidden"/>
+            <ContentControl Content="{Binding CurrentViewModel}" />
         </Grid>
+
+        
     </DockPanel>
 </Window>

@@ -8,16 +8,26 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WCI_SUV.UI.ViewModels;
+using WCI_SUV.UI.Views;
 
-namespace WCI_SUV.UI;
-
-/// <summary>
-/// Interaction logic for MainWindow.xaml
-/// </summary>
-public partial class MainWindow : Window
+namespace WCI_SUV.UI
 {
-    public MainWindow()
+
+    /// <summary>
+    /// Interaction logic for MainWindow.xaml
+    /// </summary>
+    public partial class MainWindow : Window
     {
-        InitializeComponent();
+        #region Private View Model Fields
+        private readonly ConveyorControlsViewModel _conveyorControlsViewModel;
+        private readonly DatabaseTableViewModel _databaseTableViewModel;
+        #endregion
+
+        public MainWindow(MainWindowViewModel viewModel)
+        {
+            InitializeComponent();
+            DataContext = viewModel;
+        }
     }
 }

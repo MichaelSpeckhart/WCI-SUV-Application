@@ -12,10 +12,10 @@ namespace WCI_SUV.Core.Interface.Database
     {
 
         Task<IEnumerable<T>> GetAllAsync();
-        Task<T> GetByIdAsync(long id);
+        Task<T> GetByIdAsync(Int64 id);
         Task<T> AddAsync(T entity);
         Task<T> UpdateAsync(T entity);
-        Task<T> DeleteAsync(long id);
+        Task<T> DeleteAsync(Int64 id);
 
 
     }

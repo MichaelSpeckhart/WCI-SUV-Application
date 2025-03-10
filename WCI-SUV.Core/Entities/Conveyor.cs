@@ -15,26 +15,27 @@ namespace WCI_SUV.Core.Entities
         [Key]
         [Required]
         [Column("Account Number")]
-        public long AccountNumber { get; set; }
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        public Int32 AccountNumber  { get; set; }
 
         [Required]
         [Column("Ticket Number")]
-        public long TicketNumber { get; set; }
+        public Int32 TicketNumber   { get; set; }
 
         [Required]
         [Column("Slot Number")]
-        public long SlotNumber { get; set; }
+        public Int32 SlotNumber     { get; set; }
 
         [Required]
         [Column("Garment Number")]
-        public long GarmentNumber { get; set; }
+        public Int32 GarmentNumber  { get; set; }
 
         [Required]
         [Column("Employee Number")]
-        public long EmployeeNumber { get; set; }
+        public Int32 EmployeeNumber { get; set; }
 
         [Column("Ticket Size")]
-        public long TicketSize { get; set; }
+        public long TicketSize      { get; set; }
 
     }
 }

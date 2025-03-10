@@ -3,21 +3,20 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WCI-SUV.DB", "WCI-SUV.DB\WCI-SUV.DB.csproj", "{7E657FA1-0EAF-4306-B4DA-F5C600B15399}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WCI-SUV.DB", "WCI-SUV.DB\WCI-SUV.DB.csproj", "{7E657FA1-0EAF-4306-B4DA-F5C600B15399}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WCI-SUV.IO", "WCI-SUV.IO\WCI-SUV.IO.csproj", "{4C070BD3-EE0B-451E-8E51-DBDB1B79B333}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WCI-SUV.IO", "WCI-SUV.IO\WCI-SUV.IO.csproj", "{4C070BD3-EE0B-451E-8E51-DBDB1B79B333}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WCI-SUV.UI", "WCI-SUV.UI\WCI-SUV.UI.csproj", "{66527D1B-7C4A-4CE1-AF74-92995C9BAB0B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WCI-SUV.UI", "WCI-SUV.UI\WCI-SUV.UI.csproj", "{66527D1B-7C4A-4CE1-AF74-92995C9BAB0B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WCI-SUV.Core", "WCI-SUV.Core\WCI-SUV.Core.csproj", "{9D559645-096E-45B1-B9B3-CD379F4ED70E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WCI-SUV.Core", "WCI-SUV.Core\WCI-SUV.Core.csproj", "{9D559645-096E-45B1-B9B3-CD379F4ED70E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WCI-SUV.Tests", "WCI-SUV.Tests\WCI-SUV.Tests.csproj", "{CC6C2087-75C4-48BE-A20E-49C0F90C1376}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{7E657FA1-0EAF-4306-B4DA-F5C600B15399}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -36,5 +35,15 @@ Global
 		{9D559645-096E-45B1-B9B3-CD379F4ED70E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9D559645-096E-45B1-B9B3-CD379F4ED70E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9D559645-096E-45B1-B9B3-CD379F4ED70E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CC6C2087-75C4-48BE-A20E-49C0F90C1376}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CC6C2087-75C4-48BE-A20E-49C0F90C1376}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CC6C2087-75C4-48BE-A20E-49C0F90C1376}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CC6C2087-75C4-48BE-A20E-49C0F90C1376}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {AFF63CF5-B0CD-4A7E-BD78-992E14EBEA66}
 	EndGlobalSection
 EndGlobal

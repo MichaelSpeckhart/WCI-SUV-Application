@@ -1,0 +1,47 @@
+﻿<ApplicationConfiguration ApplicationName="OPCUAClient" ApplicationType="Client">
+	<SecurityConfiguration>
+		<!-- ApplicationCertificate is usually configured for certificate-based authentication. For testing, auto-accept untrusted certificates -->
+		<ApplicationCertificate>
+			<StoreType>Directory</StoreType>
+			<StorePath>%CommonApplicationData%/OPC Foundation/CertificateStores/MachineDefault</StorePath>
+			<SubjectName>CN=OPCUAClient, O=Your Organization, C=US</SubjectName>
+		</ApplicationCertificate>
+		<TrustedIssuerCertificates>
+			<StoreType>Directory</StoreType>
+			<StorePath>%CommonApplicationData%/OPC Foundation/CertificateStores/UA Certificate Authorities</StorePath>
+		</TrustedIssuerCertificates>
+		<TrustedPeerCertificates>
+			<StoreType>Directory</StoreType>
+			<StorePath>%CommonApplicationData%/OPC Foundation/CertificateStores/UA Applications</StorePath>
+		</TrustedPeerCertificates>
+		<RejectedCertificateStore>
+			<StoreType>Directory</StoreType>
+			<StorePath>%CommonApplicationData%/OPC Foundation/CertificateStores/RejectedCertificates</StorePath>
+		</RejectedCertificateStore>
+		<!-- Set AutoAcceptUntrustedCertificates to true only in testing environments -->
+		<AutoAcceptUntrustedCertificates>true</AutoAcceptUntrustedCertificates>
+		<AddAppCertToTrustedStore>true</AddAppCertToTrustedStore>
+	</SecurityConfiguration>
+
+	<TransportQuotas>
+		<OperationTimeout>60000</OperationTimeout>
+		<MaxStringLength>65535</MaxStringLength>
+		<MaxByteStringLength>65535</MaxByteStringLength>
+		<MaxArrayLength>65535</MaxArrayLength>
+		<MaxMessageSize>4194304</MaxMessageSize>
+		<MaxBufferSize>65535</MaxBufferSize>
+		<ChannelLifetime>600000</ChannelLifetime>
+		<SecurityTokenLifetime>3600000</SecurityTokenLifetime>
+	</TransportQuotas>
+
+	<ClientConfiguration>
+		<DefaultSessionTimeout>120000</DefaultSessionTimeout>
+		<MinSubscriptionLifetime>10000</MinSubscriptionLifetime>
+	</ClientConfiguration>
+
+	<TraceConfiguration>
+		<OutputFilePath>%CommonApplicationData%/OPC Foundation/Logs/OPCUAClient.log</OutputFilePath>
+		<DeleteOnLoad>true</DeleteOnLoad>
+		<TraceMasks>255</TraceMasks>
+	</TraceConfiguration>
+</ApplicationConfiguration>

@@ -1,0 +1,103 @@
+﻿<Page x:Class="WCI_SUV.UI.Views.ConveyorControlsView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WCI_SUV.UI.Views"
+      xmlns:vm="clr-namespace:WCI_SUV.UI.ViewModels"
+      mc:Ignorable="d" 
+      d:DesignHeight="500" d:DesignWidth="800">
+
+    <!--<Page.DataContext>
+        <vm:ConveyorControlsViewModel/>
+    </Page.DataContext>-->
+
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Main Control Buttons -->
+        <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,0,20">
+            <Button Content="Run Conveyor" 
+                    Width="120" Height="40" Margin="5"
+                    Command="{Binding RunConveyorCommand}"
+                    IsEnabled="{Binding IsNotRunning}"/>
+            <Button Content="Stop Conveyor" 
+                    Width="120" Height="40" Margin="5"
+                    Command="{Binding StopConveyorCommand}"
+                    IsEnabled="{Binding IsRunning}"/>
+            <Button Content="Reverse Conveyor" 
+                    Width="120" Height="40" Margin="5"
+                    Command="{Binding ReverseCommand}"/>
+        </StackPanel>
+
+        <!-- Speed Control Buttons -->
+        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,0,20">
+            <Button Content="Accelerate Conveyor" 
+                    Width="120" Height="40" Margin="5"
+                    Command="{Binding AccelerateCommand}"
+                    IsEnabled="{Binding IsRunning}"/>
+            <Button Content="Slow Conveyor" 
+                    Width="120" Height="40" Margin="5"
+                    Command="{Binding SlowCommand}"
+                    IsEnabled="{Binding IsRunning}"/>
+        </StackPanel>
+
+        <!-- Speed Setting Controls -->
+        <GroupBox Grid.Row="2" Header="Speed Control" Margin="0,0,0,20" Padding="10">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <TextBlock Text="Set Conveyor Speed:" VerticalAlignment="Center" Margin="0,0,10,0"/>
+                <TextBox Width="100" Height="25" Margin="0,0,10,0"
+                         Text="{Binding SpeedInput, UpdateSourceTrigger=PropertyChanged}"/>
+                <Button Content="Set Speed" 
+                        Width="100" Height="30"
+                        Command="{Binding SetSpeedCommand}"/>
+            </StackPanel>
+        </GroupBox>
+
+        <!-- Target Slot Controls -->
+        <GroupBox Grid.Row="3" Header="Target Slot Control" Margin="0,0,0,20" Padding="10">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <TextBlock Text="Set Target Slot:" VerticalAlignment="Center" Margin="0,0,10,0"/>
+                <TextBox Width="100" Height="25" Margin="0,0,10,0"
+                         Text="{Binding SlotInput, UpdateSourceTrigger=PropertyChanged}"/>
+                <Button Content="Set Target" 
+                        Width="100" Height="30"
+                        Command="{Binding SetTargetSlotCommand}"/>
+            </StackPanel>
+        </GroupBox>
+
+        <GroupBox Grid.Row="4" Header="Conveyor Directions" Margin="0,0,0,20" Padding="10">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button Content="Left"
+                        Width="100" Height="30"
+                        Command="{Binding ConveyorLeftCommand}"/>
+                <Button Content="Right"
+                        Width="100" Height="30"
+                        Command="{Binding ConveyorRightCommand}"/>
+            </StackPanel>
+        </GroupBox>
+
+        <!-- Status Display -->
+        <StackPanel Grid.Row="5" Margin="0,20,0,0">
+            <TextBlock>
+                <Run Text="Current Status: "/>
+                <Run Text="{Binding StatusMessage}"/>
+            </TextBlock>
+            <TextBlock>
+                <Run Text="Current Speed: "/>
+                <Run Text="{Binding CurrentSpeed}"/>
+            </TextBlock>
+            <TextBlock>
+                <Run Text="Current Target Slot: "/>
+                <Run Text="{Binding CurrentSlot}"/>
+            </TextBlock>
+        </StackPanel>
+    </Grid>
+</Page>

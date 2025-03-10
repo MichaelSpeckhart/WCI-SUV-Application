@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+    <RootNamespace>WCI_SUV</RootNamespace>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\WCI-SUV.Core\WCI-SUV.Core.csproj" />
+    <ProjectReference Include="..\WCI-SUV.IO\WCI-SUV.IO.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="WCI-SUV-IO">
+      <HintPath>..\..\WCI-SUV-IO\bin\Debug\net8.0\WCI-SUV-IO.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>

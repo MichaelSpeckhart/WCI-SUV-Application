@@ -1,0 +1,70 @@
+﻿<Page x:Class="WCI_SUV.UI.Views.SuvControlsView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WCI_SUV.UI.Views"
+      xmlns:vm="clr-namespace:WCI_SUV.UI.ViewModels"
+      mc:Ignorable="d"
+      d:DesignHeight="500" d:DesignWidth="800">
+
+    <!--<Page.DataContext>
+        <vm:SuvControlsViewModel/>
+    </Page.DataContext>-->
+
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Left and Right Arrows (Continuous Press) -->
+        <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,0,20">
+            <Button Content="← Left" 
+                    Width="100" Height="40" Margin="5"
+                    PreviewMouseLeftButtonDown="LeftButton_Pressed"
+                    PreviewMouseLeftButtonUp="Button_Released"/>
+            <Button Content="Right →" 
+                    Width="100" Height="40" Margin="5"
+                    PreviewMouseLeftButtonDown="RightButton_Pressed"
+                    PreviewMouseLeftButtonUp="Button_Released"/>
+        </StackPanel>
+
+        <!-- Target Slot Control -->
+        <GroupBox Grid.Row="1" Header="Target Slot Control" Margin="0,0,0,20" Padding="10">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <TextBlock Text="Set Target Slot:" VerticalAlignment="Center" Margin="0,0,10,0"/>
+                <TextBox Width="100" Height="25" Margin="0,0,10,0"
+                         Text="{Binding TargetSlot, UpdateSourceTrigger=PropertyChanged}"/>
+                <Button Content="Go" 
+                        Width="100" Height="30"
+                        Command="{Binding SetTargetSlotCommand}"/>
+            </StackPanel>
+        </GroupBox>
+
+        <!-- Display Target and Current Slot -->
+        <StackPanel Grid.Row="2" Orientation="Vertical" HorizontalAlignment="Center" Margin="0,0,0,20">
+            <TextBlock>
+                <Run Text="Selected Target Slot: "/>
+                <Run Text="{Binding TargetSlotDisplay}"/>
+            </TextBlock>
+
+            <TextBlock>
+                <Run Text="Current Slot: "/>
+                <Run Text="{Binding CurrentSlot}"/>
+            </TextBlock>
+        </StackPanel>
+
+        <!-- Status Display -->
+        <StackPanel Grid.Row="3" Margin="0,20,0,0">
+            <TextBlock>
+                <Run Text="Status: "/>
+                <Run Text="{Binding StatusMessage}"/>
+            </TextBlock>
+        </StackPanel>
+    </Grid>
+</Page>
