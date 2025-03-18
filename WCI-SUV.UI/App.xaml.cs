@@ -13,6 +13,9 @@ using WCI_SUV.UI.ViewModels;
 
 using System.IO;
 using System.Diagnostics;
+using WCI_SUV.Core.Interface;
+using WCI_SUV.Core.Interface.Database;
+using System.Runtime.InteropServices;
 
 namespace WCI_SUV.UI
 {
@@ -20,8 +23,12 @@ namespace WCI_SUV.UI
     {
         private readonly ServiceProvider _serviceProvider;
 
+        [DllImport("kernel32.dll")]
+        static extern bool AllocConsole();
+
         public App()
         {
+            AllocConsole(); // Allocates a new console for the current process
             Debug.WriteLine("App is running...");
             Console.WriteLine("App is running....");
             var services = new ServiceCollection();
@@ -72,9 +79,27 @@ namespace WCI_SUV.UI
                 "opc.tcp://192.168.22.248" // Your OPC server address
             ));
 
+            services.AddSingleton<TicketEntityService>();
+            services.AddSingleton<ITicketEntityService>(provider => provider.GetRequiredService<TicketEntityService>());
+
+            services.AddSingleton<ITicketCache, TicketCache>();
+            services.AddSingleton<IConveyorCache, ConveyorCache>();
+            services.AddSingleton<ITicketProcessor, TicketProcessor>();
+            
+
+            // Register TicketProcessor, ensuring it gets the same cache instances
+            services.AddSingleton<TicketProcessor>(provider => new TicketProcessor(
+                provider.GetRequiredService<ITicketCache>(),
+                provider.GetRequiredService<IConveyorCache>(),
+                provider.GetRequiredService<IOpcService>()
+            ));
+
             services.AddSingleton<SuvControlsViewModel>(provider => new SuvControlsViewModel(
                 provider.GetRequiredService<ILogger<SuvControlsViewModel>>(),
                 provider.GetRequiredService<IOpcService>(),
+                provider.GetRequiredService<ITicketProcessor>(),
+                provider.GetRequiredService<IConveyorCache>(),
+                provider.GetRequiredService<ITicketCache>(),
                 "opc.tcp://192.168.22.248"
             ));
 

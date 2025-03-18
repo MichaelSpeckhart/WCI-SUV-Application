@@ -82,6 +82,7 @@ namespace WCI_SUV.UI.ViewModels
         #endregion
 
         #region Properties
+
         public bool IsRunning
         {
             get => _isRunning;

@@ -20,7 +20,7 @@ namespace WCI_SUV.IO.Models.OPC
         private readonly ApplicationConfiguration _config;
 
         private const int DEFAULT_TIMEOUT = 30000; // Reduced from 550000ms
-        private const int RETRY_ATTEMPTS = 3;
+        private const int RETRY_ATTEMPTS = 1;
         private const int KEEPALIVE_INTERVAL = 5000;
 
         public bool IsConnected => _session?.Connected ?? false;

@@ -20,8 +20,9 @@ namespace WCI_SUV.UI
     public partial class MainWindow : Window
     {
         #region Private View Model Fields
-        private readonly ConveyorControlsViewModel _conveyorControlsViewModel;
-        private readonly DatabaseTableViewModel _databaseTableViewModel;
+        private readonly ConveyorControlsViewModel  _conveyorControlsViewModel;
+        private readonly DatabaseTableViewModel     _databaseTableViewModel;
+        private readonly SuvControlsViewModel       _suvControlsViewModel;
         #endregion
 
         public MainWindow(MainWindowViewModel viewModel)

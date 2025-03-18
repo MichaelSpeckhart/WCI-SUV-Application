@@ -114,7 +114,7 @@ namespace WCI_SUV.DB.Services
                 var result = await _context.Tickets.AddAsync(ticket)
                     .ConfigureAwait(false);
 
-                await _context.SaveChangesAsync()
+                var added = await _context.SaveChangesAsync()
                     .ConfigureAwait(false);
 
                 return result.Entity;
@@ -214,7 +214,7 @@ namespace WCI_SUV.DB.Services
         {
             try
             {
-                var results = _context.Conveyors
+                var results = _context.Tickets
                     .Select(c => c.SlotNumber)
                     .ToList();
 
@@ -238,6 +238,8 @@ namespace WCI_SUV.DB.Services
                 throw;
             }
         }
+
+        
 
 
 

@@ -11,8 +11,9 @@ namespace WCI_SUV.Core.Entities
 
         private Dictionary<string, Type> _entityMap = new Dictionary<string, Type>
         {
-            {"Conveyor", typeof(Conveyor) },
-            {"Customer", typeof(Conveyor) }
+            {"Conveyor",    typeof(Conveyor) },
+            {"Node",        typeof(Node) },
+            {"Customer",    typeof(Conveyor) }
         };
 
         public Type? GetEntityType(string entityName)

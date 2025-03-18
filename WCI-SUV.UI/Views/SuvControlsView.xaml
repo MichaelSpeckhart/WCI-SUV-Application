@@ -19,7 +19,9 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="121*"/>
+            <RowDefinition Height="99*"/>
         </Grid.RowDefinitions>
 
         <!-- Left and Right Arrows (Continuous Press) -->
@@ -34,37 +36,46 @@
                     PreviewMouseLeftButtonUp="Button_Released"/>
         </StackPanel>
 
-        <!-- Target Slot Control -->
-        <GroupBox Grid.Row="1" Header="Target Slot Control" Margin="0,0,0,20" Padding="10">
+        <!-- Ticket Number Control -->
+        <GroupBox Grid.Row="1" Header="Ticket Number Control" Margin="0,0,0,20" Padding="10">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                <TextBlock Text="Set Target Slot:" VerticalAlignment="Center" Margin="0,0,10,0"/>
+                <TextBlock Text="Ticket Number:" VerticalAlignment="Center" Margin="0,0,10,0" Width="117"/>
                 <TextBox Width="100" Height="25" Margin="0,0,10,0"
-                         Text="{Binding TargetSlot, UpdateSourceTrigger=PropertyChanged}"/>
-                <Button Content="Go" 
-                        Width="100" Height="30"
-                        Command="{Binding SetTargetSlotCommand}"/>
+                         Text="{Binding TicketNumber, UpdateSourceTrigger=PropertyChanged}" TextChanged="TextBox_TextChanged"/>
             </StackPanel>
         </GroupBox>
 
         <!-- Display Target and Current Slot -->
-        <StackPanel Grid.Row="2" Orientation="Vertical" HorizontalAlignment="Center" Margin="0,0,0,20">
+        <StackPanel Grid.Row="6" Orientation="Vertical" HorizontalAlignment="Left" Margin="333,26,0,70">
             <TextBlock>
                 <Run Text="Selected Target Slot: "/>
                 <Run Text="{Binding TargetSlotDisplay}"/>
             </TextBlock>
-
-            <TextBlock>
-                <Run Text="Current Slot: "/>
-                <Run Text="{Binding CurrentSlot}"/>
-            </TextBlock>
+            <TextBlock Height="17"><Run Text="Current Slot: "/><Run Text=" "/><Run Text="{Binding CurrentSlot}"/></TextBlock>
         </StackPanel>
 
         <!-- Status Display -->
-        <StackPanel Grid.Row="3" Margin="0,20,0,0">
+        <StackPanel Grid.Row="6" Margin="10,98,-10,23">
             <TextBlock>
                 <Run Text="Status: "/>
                 <Run Text="{Binding StatusMessage}"/>
             </TextBlock>
+            <TextBlock>
+                <Run Text="Next Available Slot: "/>
+                <Run Text="{Binding NextAvailableSlot}"/>
+            </TextBlock>
         </StackPanel>
+
+        <!-- Add & Remove Buttons (Proper Placement in Grid) -->
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,10,0,20">
+            <Button Content="Add"
+                    Width="100" Height="40" Margin="5"
+                    Command="{Binding AddTicketCommand}" Click="Button_Click_1"/>
+            <Button Content="Remove"
+                    Width="100" Height="40" Margin="5"
+                    Command="{Binding RemoveTicketCommand}"
+                    Click="Button_Click"/>
+        </StackPanel>
+
     </Grid>
 </Page>

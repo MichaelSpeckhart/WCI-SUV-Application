@@ -225,10 +225,10 @@ namespace WCI_SUV.UI.ViewModels
                     DatabaseConnInfo = "Connected to: Microsoft SQL Server";
 
                     // Automatically load first table if none selected
-                    if (string.IsNullOrEmpty(SelectedTable) && TableNames.Count > 0)
-                    {
-                        SelectedTable = TableNames[0];
-                    }
+                    //if (string.IsNullOrEmpty(SelectedTable) && TableNames.Count > 0)
+                    //{
+                    //    SelectedTable = TableNames[0];
+                    //}
                 }
             }
             catch (Exception ex)
@@ -269,6 +269,7 @@ namespace WCI_SUV.UI.ViewModels
         public ICommand AddEntryCommand     { get; private set; }
         public ICommand EditEntryCommand    { get; private set; }
         public ICommand DeleteEntryCommand  { get; private set; }
+        public ICommand SearchTextCommand   { get; private set; }
 
         private void InitializeCommands()
         {
@@ -357,6 +358,11 @@ namespace WCI_SUV.UI.ViewModels
                 _logger.LogError(ex, "Error applying filter.");
             }
         }
+
+      
+
+
+
         #endregion
 
         #region Load Table Data
